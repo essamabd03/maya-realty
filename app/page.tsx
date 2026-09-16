@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const NAV_LINKS = ['About', 'Services', 'Areas', 'Contact'];
+const NAV_LINKS = ['About', 'Services', 'Areas', 'Reviews', 'Contact'];
 
 function Nav() {
   const [open, setOpen] = useState(false);
@@ -248,6 +248,122 @@ function Areas() {
   );
 }
 
+function Reviews() {
+  const MAPS_URL = 'https://maps.google.com/maps?cid=5557567828920811669';
+  const REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJG77dP27P44kRleXQHIvCmEg';
+
+  const testimonials = [
+    {
+      text: "Maya made buying our first home in Providence a seamless, stress-free experience. She was always available, incredibly knowledgeable, and fought hard for us at every step.",
+      author: "Sarah & James K.",
+      detail: "First-time Homebuyers · Providence, RI",
+    },
+    {
+      text: "As an Arabic-speaking family new to Rhode Island, finding Maya was a blessing. She understood our needs perfectly and found us our dream home. We couldn't be happier.",
+      author: "Fatima A.",
+      detail: "Buyer · North Providence, RI",
+    },
+    {
+      text: "Maya sold our Cranston home in just 11 days — above asking price. Her marketing strategy and negotiation skills are second to none. Highly recommend!",
+      author: "Michael R.",
+      detail: "Seller · Cranston, RI",
+    },
+  ];
+
+  return (
+    <section id="reviews" className="py-24 bg-[#FAF8F5]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <p className="text-[#C9A84C] text-xs tracking-[0.4em] uppercase mb-4">Client Reviews</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#1A1A1A] leading-tight" style={{ fontFamily: 'Georgia, serif' }}>
+            What Clients Are Saying
+          </h2>
+          <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+            Real stories from real clients. Maya's mission is simple — make the process easy and get you the best outcome.
+          </p>
+        </div>
+
+        {/* Testimonial cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {testimonials.map((t, i) => (
+            <div key={i} className="bg-white border border-gray-200 p-8 relative">
+              <div className="flex gap-0.5 mb-4">
+                {[1,2,3,4,5].map(s => (
+                  <span key={s} className="text-[#C9A84C] text-lg">★</span>
+                ))}
+              </div>
+              <div className="text-[#C9A84C] text-3xl leading-none mb-3">&ldquo;</div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">{t.text}</p>
+              <div className="border-t border-gray-100 pt-4">
+                <p className="text-[#1A1A1A] font-bold text-sm">{t.author}</p>
+                <p className="text-gray-400 text-xs mt-0.5 tracking-wide">{t.detail}</p>
+              </div>
+              <div className="absolute top-4 right-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Google Maps embed + Leave a Review CTA */}
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="flex-1 overflow-hidden border border-gray-200" style={{ minHeight: '300px' }}>
+            <iframe
+              src="https://maps.google.com/maps?cid=5557567828920811669&output=embed"
+              width="100%"
+              height="340"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Gold Door Realty on Google Maps"
+            />
+          </div>
+
+          <div className="lg:w-80 flex flex-col gap-4">
+            <div className="bg-[#1A1A1A] p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex gap-1 mb-3">
+                  {[1,2,3,4,5].map(s => <span key={s} className="text-[#C9A84C] text-xl">★</span>)}
+                </div>
+                <h3 className="text-white text-xl font-bold mb-3" style={{ fontFamily: 'Georgia, serif' }}>
+                  Share Your Experience
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-6">
+                  Worked with Maya? Your Google review helps other families find the trusted guidance they need.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <a
+                  href={REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#C9A84C] text-[#1A1A1A] py-4 font-bold text-xs tracking-widest uppercase hover:bg-[#E8C97A] transition-colors text-center"
+                >
+                  <span>★</span> Leave a Google Review
+                </a>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 border border-[#C9A84C]/30 text-[#C9A84C] py-3 text-xs tracking-widest uppercase hover:border-[#C9A84C] transition-colors text-center"
+                >
+                  View on Google Maps →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', type: 'buy' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
@@ -384,6 +500,7 @@ export default function Home() {
       <About />
       <Services />
       <Areas />
+      <Reviews />
       <Contact />
       <Footer />
     </>
