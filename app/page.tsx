@@ -249,8 +249,8 @@ function Areas() {
 }
 
 function Reviews() {
-  const MAPS_URL = 'https://maps.google.com/maps?cid=5557567828920811669';
-  const REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJG77dP27P44kRleXQHIvCmEg';
+  const MAPS_URL = 'https://www.google.com/maps/place/?q=place_id:ChIJrx8u1KNr5lkR94ARGn2_auk';
+  const REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJrx8u1KNr5lkR94ARGn2_auk';
 
   const testimonials = [
     {
@@ -314,7 +314,7 @@ function Reviews() {
         <div className="flex flex-col lg:flex-row gap-8 items-stretch">
           <div className="flex-1 overflow-hidden border border-gray-200" style={{ minHeight: '300px' }}>
             <iframe
-              src="https://maps.google.com/maps?cid=5557567828920811669&output=embed"
+              src="https://maps.google.com/maps?place_id=ChIJrx8u1KNr5lkR94ARGn2_auk&output=embed"
               width="100%"
               height="340"
               style={{ border: 0, display: 'block' }}
