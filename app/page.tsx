@@ -41,42 +41,58 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#1A1A1A] overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-[#1A1A1A] overflow-hidden">
       {/* Gold accent lines */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/30 to-transparent ml-12" />
         <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/30 to-transparent mr-12" />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-6 text-center pt-20">
-        <p className="text-[#C9A84C] text-xs tracking-[0.4em] uppercase mb-6">Gold Door Realty · RI & MA</p>
-        <h1 className="text-white text-5xl sm:text-7xl font-bold leading-tight mb-6" style={{ fontFamily: 'Georgia, serif' }}>
-          I Will Open<br />
-          <span className="text-[#C9A84C]">The Door</span><br />
-          To Your Home
-        </h1>
-        <p className="text-white/60 text-lg sm:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-          Maya M. Ramadan — REALTOR® &amp; CEBA, serving Rhode Island and Massachusetts with dedication, expertise, and heart.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#contact" className="bg-[#C9A84C] text-[#1A1A1A] px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#E8C97A] transition-colors">
-            Let's Find Your Home
-          </a>
-          <a href="#about" className="border border-white/30 text-white/80 px-8 py-4 text-sm tracking-widest uppercase hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors">
-            About Maya
-          </a>
+      <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-12 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        {/* Text side */}
+        <div className="flex-1 text-center lg:text-left">
+          <p className="text-[#C9A84C] text-xs tracking-[0.4em] uppercase mb-6">Gold Door Realty · RI & MA</p>
+          <h1 className="text-white text-5xl sm:text-6xl xl:text-7xl font-bold leading-tight mb-6" style={{ fontFamily: 'Georgia, serif' }}>
+            I Will Open<br />
+            <span className="text-[#C9A84C]">The Door</span><br />
+            To Your Home
+          </h1>
+          <p className="text-white/60 text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+            Maya M. Ramadan — REALTOR® &amp; CEBA, serving Rhode Island and Massachusetts with dedication, expertise, and heart.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#contact" className="bg-[#C9A84C] text-[#1A1A1A] px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#E8C97A] transition-colors">
+              Let's Find Your Home
+            </a>
+            <a href="#about" className="border border-white/30 text-white/80 px-8 py-4 text-sm tracking-widest uppercase hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors">
+              About Maya
+            </a>
+          </div>
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 sm:gap-12">
+            {[
+              { num: 'RI & MA', label: 'Licensed' },
+              { num: 'CEBA', label: 'Certified' },
+              { num: '5K+', label: 'Followers' },
+            ].map(s => (
+              <div key={s.label} className="text-center lg:text-left">
+                <p className="text-[#C9A84C] text-2xl font-bold">{s.num}</p>
+                <p className="text-white/50 text-xs tracking-widest uppercase mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-          {[
-            { num: 'RI & MA', label: 'Licensed' },
-            { num: 'CEBA', label: 'Certified' },
-            { num: '5K+', label: 'Followers' },
-          ].map(s => (
-            <div key={s.label} className="text-center">
-              <p className="text-[#C9A84C] text-2xl font-bold">{s.num}</p>
-              <p className="text-white/50 text-xs tracking-widest uppercase mt-1">{s.label}</p>
-            </div>
-          ))}
+
+        {/* Photo side */}
+        <div className="flex-shrink-0 relative">
+          <div className="absolute -inset-3 border border-[#C9A84C]/30" />
+          <div className="absolute -inset-6 border border-[#C9A84C]/10" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/maya-photo.jpeg"
+            alt="Maya Ramadan — REALTOR®"
+            className="relative w-72 sm:w-80 lg:w-96 object-cover object-top"
+            style={{ aspectRatio: '3/4' }}
+          />
         </div>
       </div>
 
