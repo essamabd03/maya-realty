@@ -460,7 +460,20 @@ function Contact() {
                   placeholder="Tell Maya what you're looking for..."
                   className="w-full border border-gray-300 px-3 py-3 text-sm focus:outline-none focus:border-[#C9A84C] transition-colors bg-white resize-none" />
               </div>
-              {status === 'error' && <p className="text-red-500 text-xs">Something went wrong. Please call or email directly.</p>}
+              {status === 'error' && (
+                <p className="text-red-500 text-xs">
+                  Something went wrong sending your message. Please{' '}
+                  <a href="tel:+17819740706" className="underline">call 781-974-0706</a>{' '}
+                  or{' '}
+                  <a
+                    href={`mailto:Maya@golddoorrealty.com?subject=${encodeURIComponent(`${form.type} inquiry from ${form.name}`)}&body=${encodeURIComponent(`${form.message}\n\nPhone: ${form.phone}\nEmail: ${form.email}`)}`}
+                    className="underline"
+                  >
+                    email directly
+                  </a>{' '}
+                  — your message wasn&apos;t lost, we just want to make sure Maya sees it.
+                </p>
+              )}
               <button type="submit" disabled={status === 'sending'}
                 className="w-full bg-[#C9A84C] text-[#1A1A1A] py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#E8C97A] disabled:opacity-50 transition-colors">
                 {status === 'sending' ? 'Sending…' : 'Send Message →'}

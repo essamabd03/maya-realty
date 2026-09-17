@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Maya Ramadan — REALTOR® | Rhode Island & Massachusetts',
   description: 'Maya M. Ramadan, REALTOR® and CEBA. Helping families buy, sell, and rent homes across Rhode Island and Massachusetts. Gold Door Realty.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mayaramadanrealty.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mayaramadan.com'),
   openGraph: {
     title: 'Maya Ramadan — REALTOR® | RI & MA',
     description: 'I will open the door to your home. Serving Rhode Island and Massachusetts.',

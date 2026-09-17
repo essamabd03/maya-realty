@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: 'Maya Ramadan Website <noreply@mayaramadanrealty.com>',
+      from: 'Maya Ramadan Website <noreply@mayaramadan.com>',
       to: ['Maya@golddoorrealty.com'],
       reply_to: email,
       subject: `New ${type === 'buy' ? 'Buyer' : type === 'sell' ? 'Seller' : 'Rental'} Inquiry — ${name}`,
